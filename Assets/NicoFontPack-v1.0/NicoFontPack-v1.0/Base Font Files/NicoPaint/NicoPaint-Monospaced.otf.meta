@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: c68df51ff7cb50847b246765c11fbef0
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - NicoPaint
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 623abbbcf0b4ec2448f1e7978380ad5e, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
