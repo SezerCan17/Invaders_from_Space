@@ -1072,6 +1072,10 @@ PrefabInstance:
       propertyPath: objectPool
       value: 
       objectReference: {fileID: 1789946664}
+    - target: {fileID: 760238824260989061, guid: 758c429725715104f81c19face306979, type: 3}
+      propertyPath: shipStats.shipSpeed
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1074542519615371126, guid: 758c429725715104f81c19face306979, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1118,6 +1122,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3702053120522099731, guid: 758c429725715104f81c19face306979, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3702053120522099731, guid: 758c429725715104f81c19face306979, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []

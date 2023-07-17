@@ -184,4 +184,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28479a7374fb45041960c3331ca56450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletDeactivatePos: 9
+  bulletDeactivatePos: 10

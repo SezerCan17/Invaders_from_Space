@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -15,10 +16,13 @@ public class PlayerScript : MonoBehaviour
     //private float cooldown = 0.5f;
     [SerializeField] private ObjectPool objectPool = null;
     public ShipStats shipStats;
+    private Vector2 offScreenPos = new Vector2(0, -20f);
+    private Vector2 startPos = new Vector2(0, -6.5f);
     void Start()
     {
         shipStats.currentHealth = shipStats.maxHealth;
         shipStats.currentLifes = shipStats.maxLifes;
+        transform.position = startPos;
     }
 
    
@@ -53,6 +57,18 @@ public class PlayerScript : MonoBehaviour
         isShooting=false;
     }
 
+    private IEnumerator Respawn()
+    {
+        transform.position = offScreenPos;
+
+        yield return new WaitForSeconds(2);
+
+        shipStats.currentHealth = shipStats.maxHealth;
+
+        transform.position = startPos;
+        //UIManager.UpdateHealthBar(shipStats.currentHealth);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.CompareTag("EnemyBullet"))
@@ -77,8 +93,11 @@ public class PlayerScript : MonoBehaviour
             else
             {
                 Debug.Log("Respawn");
+                StartCoroutine(Respawn());
             }
         }
         
     }
+
+    
 }
