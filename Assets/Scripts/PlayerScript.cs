@@ -10,13 +10,15 @@ public class PlayerScript : MonoBehaviour
     private const float maxX = 2.18f;
     private const float minX = -2.18f;
 
-    private float speed = 3f;
+    //private float speed = 3f;
     private bool isShooting;
-    private float cooldown = 0.5f;
+    //private float cooldown = 0.5f;
     [SerializeField] private ObjectPool objectPool = null;
+    public ShipStats shipStats;
     void Start()
     {
-        
+        shipStats.currentHealth = shipStats.maxHealth;
+        shipStats.currentLifes = shipStats.maxLifes;
     }
 
    
@@ -26,11 +28,11 @@ public class PlayerScript : MonoBehaviour
         {
             if(Input.GetKey(KeyCode.A) && transform.position.x > minX)
             {
-                transform.Translate(Vector2.left* Time.deltaTime * speed);
+                transform.Translate(Vector2.left* Time.deltaTime * shipStats.shipSpeed);
             }
             if (Input.GetKey(KeyCode.D) && transform.position.x < maxX)
             {
-                transform.Translate(Vector2.right * Time.deltaTime * speed);
+                transform.Translate(Vector2.right * Time.deltaTime * shipStats.shipSpeed);
             }
             if(Input.GetKey(KeyCode.Space) && !isShooting)
             {
@@ -47,7 +49,36 @@ public class PlayerScript : MonoBehaviour
         //Instantiate(bulletPrefabs, transform.position, Quaternion.identity);
         GameObject obj= objectPool.GetPooledObject();
         obj.transform.position = gameObject.transform.position;
-        yield return new WaitForSeconds(cooldown);
+        yield return new WaitForSeconds(shipStats.fireRate);
         isShooting=false;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("EnemyBullet"))
+        {
+            collision.gameObject.SetActive(false);
+            TakeDamage();
+        }
+    }
+
+    public void TakeDamage()
+    {
+        shipStats.currentHealth--;
+
+        if(shipStats.currentHealth <= 0 )
+        {
+            shipStats.currentLifes--;
+
+            if (shipStats.currentLifes <= 0)
+            {
+                Debug.Log("GameOver");
+            }
+            else
+            {
+                Debug.Log("Respawn");
+            }
+        }
+        
     }
 }

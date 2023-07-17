@@ -10,12 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 5536814898183807364}
   - component: {fileID: 810765285884588641}
+  - component: {fileID: 2110655827907184190}
   - component: {fileID: 3694059666702968852}
   - component: {fileID: 5717460193187843653}
-  - component: {fileID: 6470141061601411510}
+  - component: {fileID: 4623821706425767956}
   m_Layer: 0
   m_Name: FriendlyBullet
-  m_TagString: Untagged
+  m_TagString: FriendlyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87,6 +88,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &2110655827907184190
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2548643463656192033}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!61 &3694059666702968852
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -144,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab6f9a667d709d142b535a32f2d48c83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6470141061601411510
+--- !u!114 &4623821706425767956
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -153,7 +181,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2548643463656192033}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57c8152cf92bf2748b3a0e56aec2b4c9, type: 3}
+  m_Script: {fileID: 11500000, guid: 28479a7374fb45041960c3331ca56450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seconds: 3
+  bulletDeactivatePos: 9

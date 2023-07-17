@@ -5,7 +5,13 @@ using UnityEngine;
 
 public class AllienMaster : MonoBehaviour
 {
+    [SerializeField] private ObjectPool objectPool = null;
     public GameObject bulletPrefabs;
+    public GameObject motherShipPrefabs;
+    private Vector3 motherShipSpawnPos = new Vector3(3.72f, 3.45f, 0);
+    private float motherShipTimer = 1f;
+    private const float MOTHERSHIP_MIN = 15f;
+    private const float MOTHERSHIP_MAX = 60f;
 
     private Vector3 hMoveDistance = new Vector3 (0.05f, 0, 0);
     private Vector3 vMoveDistance = new Vector3(0, 0.15f, 0);
@@ -18,8 +24,12 @@ public class AllienMaster : MonoBehaviour
     private bool movingRight;
     private float moveTimer = 0.01f;
     private float moveTime = 0.005f;
+    private float shootTimer = 3f;
+    private const float ShootTime=3f;
 
     private const float MAX_MOVE_SPEED = 0.02f;
+
+    
 
     void Start()
     {
@@ -37,7 +47,34 @@ public class AllienMaster : MonoBehaviour
             MoveEnemies();
 
         }
+        if(shootTimer<=0)
+        {
+            Shoot();
+        }
+       
+        if(motherShipTimer <= 0)
+        {
+            SpawnMotherShip();
+        }
         moveTimer -= Time.deltaTime;
+        shootTimer -= Time.deltaTime;
+        motherShipTimer -= Time.deltaTime;
+    }
+
+    private void SpawnMotherShip()
+    {
+        Instantiate(motherShipPrefabs, motherShipSpawnPos, Quaternion.identity);
+        motherShipTimer = Random.Range(MOTHERSHIP_MIN, MOTHERSHIP_MAX);
+    }
+
+    private void Shoot()
+    {
+        Vector2 pos = allAlliens[Random.Range(0, allAlliens.Count)].transform.position;
+
+        //Instantiate(bulletPrefabs, pos, Quaternion.identity);
+        GameObject obj = objectPool.GetPooledObject();
+        obj.transform.position = pos;
+        shootTimer = ShootTime;
     }
 
     private void MoveEnemies()

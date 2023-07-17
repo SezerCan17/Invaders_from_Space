@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class Allien : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int scoreValue;
+    public GameObject explosion;
 
-    // Update is called once per frame
-    void Update()
+    public void Kill()
     {
-        
+        AllienMaster.allAlliens.Remove(gameObject);
+        Instantiate(explosion,transform.position, Quaternion.identity);
+        gameObject.SetActive(false);
     }
 }

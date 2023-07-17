@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 5080171155433185772}
   - component: {fileID: 4851726327467996675}
   - component: {fileID: 6538838939974783157}
+  - component: {fileID: 7830745202610776411}
+  - component: {fileID: -8125681381820850572}
   m_Layer: 0
   m_Name: MotherShip
-  m_TagString: Untagged
+  m_TagString: Allien
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4851726327467996675
 SpriteRenderer:
@@ -130,3 +132,30 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.4406147}
   m_EdgeRadius: 0
+--- !u!114 &7830745202610776411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4596081797719462255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69698b7d52c70ee4a913d8091ade4c8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreValue: 500
+--- !u!114 &-8125681381820850572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4596081797719462255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1e90640811dde64b96b0f7a7c6f11f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreValue: 200
+  explosion: {fileID: 4917646693915028618, guid: 7b0f4456f74a3e44e97fc0288bc71ca3, type: 3}
